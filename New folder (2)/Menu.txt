@@ -1,0 +1,5 @@
+INSERT INTO menu (item_id, item_name, price, item_picture)
+VALUES (1, 'Caffe Americano', 2.30, 'C:\Users\User\Desktop\coffee\Coffee_Shop_Management\static\caffe-americano.jpg'),
+(2, 'Caffe Misto',2.30, 'C:\Users\User\Desktop\coffee\Coffee_Shop_Management\static\caffe-misto.jpg'),
+(3, 'Cappuccino',2.30, 'C:\Users\User\Desktop\coffee\Coffee_Shop_Management\static\cappuccino.jpg'),
+(4, 'Espresso',2.30, 'C:\Users\User\Desktop\coffee\Coffee_Shop_Management\static\espresso.jpg')
