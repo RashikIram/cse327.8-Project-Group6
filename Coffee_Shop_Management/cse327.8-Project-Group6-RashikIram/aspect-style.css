@@ -1,0 +1,182 @@
+#button-id-16- { min-height: 28px; margin: unset; font-size: 20px; border-radius: 4px; background-color: rgba(255, 255, 255, 0); width: auto; font-weight: 600; font-family: poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; letter-spacing: 0px; line-height: 22.6667px; color: rgb(255, 255, 255); }
+
+#button-id-16-:active, #button-id-16-.active { color: rgb(255, 255, 255) !important; }
+
+#button-id-16-:hover, #button-id-16-.hover { color: rgba(255, 255, 255, 0.7); }
+
+#button-id-19- { min-height: 40px; margin: unset; border-radius: 4px; background-color: rgba(255, 255, 255, 0); width: auto; font-weight: 600; font-style: normal; color: rgb(255, 255, 255); }
+
+#button-id-19-:active, #button-id-19-.active { color: rgb(255, 255, 255) !important; }
+
+#button-id-19-:hover, #button-id-19-.hover { color: rgba(255, 255, 255, 0.7); }
+
+#button-id-21- { min-height: 40px; margin: unset; border-radius: 4px; background-color: rgba(255, 255, 255, 0); width: auto; font-weight: 600; font-style: normal; color: rgb(255, 255, 255); }
+
+#button-id-21-:active, #button-id-21-.active { color: rgb(255, 255, 255) !important; }
+
+#button-id-21-:hover, #button-id-21-.hover { color: rgba(255, 255, 255, 0.7); }
+
+#button-id-23- { min-height: 40px; margin: unset; color: rgb(255, 255, 255); font-size: 15px; border-radius: 0px; background-color: rgb(35, 35, 35); font-family: inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-weight: 600; width: 156px; }
+
+#button-id-23-:active, #button-id-23-.active { color: rgba(255, 255, 255, 0.5); background-color: rgb(0, 0, 0); }
+
+#button-id-23-:hover, #button-id-23-.hover { color: rgba(255, 255, 255, 0.5); background-color: rgb(35, 35, 35); }
+
+#button-id-25- { margin: unset; font-size: 16px; border-radius: 6px; background-color: rgba(255, 255, 255, 0); padding: 6px 12px; min-height: 36px; color: rgb(255, 255, 255); }
+
+#button-id-25-:active, #button-id-25-.active { color: rgb(255, 255, 255) !important; }
+
+#button-id-25-:hover, #button-id-25-.hover { color: rgba(255, 255, 255, 0.7); }
+
+#button-id-36- { margin: unset; font-size: 16px; border-radius: 6px; background-color: rgba(255, 255, 255, 0); padding: 6px 12px; min-height: 36px; color: rgb(255, 255, 255); font-weight: 700; }
+
+#button-id-36-:active, #button-id-36-.active { color: rgb(255, 255, 255) !important; }
+
+#button-id-36-:hover, #button-id-36-.hover { color: rgba(255, 255, 255, 0.7); }
+
+#button-id-61- { margin: unset; color: rgb(0, 0, 0); font-size: 16px; border-radius: 6px; padding: 6px 12px; min-height: 36px; background-color: rgb(217, 217, 217);
+  left: calc(73.125% - 145px / 2); top: 32px; }
+
+#button-id-61-:active, #button-id-61-.active { color: rgb(0, 0, 0) !important; background-color: rgb(195, 195, 195) !important; }
+
+#button-id-61-:hover, #button-id-61-.hover { color: rgba(0, 0, 0, 0.5); background-color: rgba(217, 217, 217, 0.7); }
+
+#button-id-77- { min-height: 40px; margin: unset; color: rgb(255, 255, 255); font-size: 15px; border-radius: 0px; background-color: rgb(35, 35, 35); font-family: inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-weight: 600;
+  width: 13%;
+  left: calc(91.66666666666667% - 156px / 2); top: 385px; }
+
+#button-id-77-:active, #button-id-77-.active { color: rgba(255, 255, 255, 0.5); background-color: rgb(0, 0, 0); }
+
+#button-id-77-:hover, #button-id-77-.hover { color: rgba(255, 255, 255, 0.5); background-color: rgb(35, 35, 35); }
+
+#container-id-15- { justify-content: space-between; align-items: center; padding: 0px 80px; flex-direction: row; background-color: rgba(0, 0, 0, 0); }
+
+#container-id-15- > * { max-width: 100%; }
+
+#container-id-18- { min-height: auto; margin: unset; background-color: rgba(238, 238, 238, 0); justify-content: flex-end; align-items: center; width: auto; flex-direction: row; }
+
+#container-id-18- > * { max-width: 100%; margin-right: 48px !important; margin-bottom: 0px !important; }
+
+#container-id-18- > :last-child, #container-id-18- > .last-child { margin-right: 0px !important; margin-bottom: 0px !important; }
+
+#container-id-33- { min-height: auto; margin: unset; background-color: rgba(238, 238, 238, 0); flex-direction: column; align-items: center; justify-content: flex-start;
+  width: 100%; padding: 0px 80px; }
+
+#container-id-33- > * { max-width: 100%; margin-right: 0px !important; margin-bottom: 4px !important; }
+
+#container-id-33- > :last-child, #container-id-33- > .last-child { margin-right: 0px !important; margin-bottom: 0px !important; }
+
+#container-id-52- { min-height: 100px; margin: unset;
+  width: 102.49999999999999%; left: 0px; top: 4px; background-color: rgb(243, 231, 231); }
+
+#container-id-52- > * { max-width: unset; margin-right: 0px !important; margin-bottom: 0px !important; }
+
+#container-id-52- > :last-child, #container-id-52- > .last-child { margin-right: 0px !important; margin-bottom: 0px !important; }
+
+#content-container { flex-direction: column; align-items: flex-start; justify-content: flex-start; }
+
+#content-container > * { max-width: 100%; margin-right: 0px !important; }
+
+#content-container > :last-child, #content-container > .last-child { margin-right: 0px !important; margin-bottom: 0px !important; }
+
+#element-id-55- { background-color: rgb(217, 217, 217); }
+
+#element-id-57- { background-color: rgb(217, 217, 217); }
+
+#element-id-58- { background-color: rgb(217, 217, 217); }
+
+#element-id-60- { background-color: rgb(217, 217, 217); }
+
+#element-id-63- { padding: 8px 0px; background-color: rgb(255, 255, 255); border-radius: 4px; border-style: solid; border-width: 1px; border-color: rgb(221, 221, 221); margin-top: 8px; }
+
+#menu-id-27- { margin: unset; width: 100%; min-height: 108px; background-color: rgb(81, 47, 34); }
+
+#menu-id-27- > * { max-width: 1320px; }
+
+#root-container { background-position: center center; }
+
+#text-id-31- { margin: unset; background-color: rgba(0, 0, 0, 0); letter-spacing: 0px; line-height: 90px; font-size: 80px; font-family: poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-weight: 600; color: rgb(34, 34, 34); text-align: center; left: 0px; }
+
+#text-id-32- { margin: unset; background-color: rgba(0, 0, 0, 0); width: auto; letter-spacing: 0px; line-height: 26px; font-size: 18px; }
+
+#text-id-54- { margin: unset; background-color: rgba(0, 0, 0, 0);
+  width: 34.583333333333336%;
+  left: calc(20.958333333333336% - 415px / 2); top: 42px; }
+
+#text-id-56- { margin: unset; background-color: rgba(0, 0, 0, 0);
+  left: calc(33.416666666666664% - 120px / 2); top: 222px; }
+
+#text-id-59- { margin: unset; background-color: rgba(0, 0, 0, 0);
+  left: calc(58.958333333333336% - 63px / 2); top: 41px; }
+
+[data-item-of="button-id-61-popover"] { font-size: 15px; background-color: rgba(255, 255, 255, 0); padding: 8px 16px; }
+
+[data-item-of="button-id-61-popover"]:active, [data-item-of="button-id-61-popover"].active { background-color: rgba(255, 255, 255, 0); }
+
+[data-item-of="button-id-61-popover"]:hover, [data-item-of="button-id-61-popover"].hover { background-color: rgba(0, 0, 0, 0.1); }
+
+@media (min-width:1025px) {#button-id-23- { min-height: 42px; }
+
+#button-id-77- { min-height: 42px; }
+
+#container-id-52- { min-height: 457px; position: relative; display: block; }
+
+#container-id-52- > * { position: absolute; }
+
+#content-container { display: flex; }}
+
+@media (min-width:641px) and (max-width:1024px) {#container-id-15- { padding: 0px 48px; flex-direction: row; }
+
+#container-id-15- > * { max-width: 100%; }
+
+#container-id-18- { flex-direction: row; }
+
+#container-id-18- > * { max-width: 100%; }
+
+#container-id-33- { padding: 0px 48px; flex-direction: column; }
+
+#container-id-33- > * { max-width: 100%; }
+
+#content-container { display: flex; flex-direction: column; }
+
+#content-container > * { max-width: 100%; }
+
+#text-id-31- { letter-spacing: 0px; line-height: 90px; font-size: 80px; }}
+
+@media (max-width:640px) {#button-id-19- { display: none; }
+
+#button-id-21- { min-height: 36px; }
+
+#button-id-23- { width: 96px; min-height: 36px; }
+
+#button-id-77- { width: 96px; min-height: 36px; }
+
+#container-id-15- { padding: 0px 24px; flex-direction: row; }
+
+#container-id-15- > * { max-width: 100%; }
+
+#container-id-18- { width: 207px; min-height: auto; flex-direction: row; }
+
+#container-id-18- > * { max-width: 100%; margin-right: 24px !important; margin-bottom: 0px !important; }
+
+#container-id-18- > :last-child, #container-id-18- > .last-child { margin-right: 0px !important; }
+
+#container-id-33- { min-height: auto; padding: 0px 24px; flex-direction: column; }
+
+#container-id-33- > * { max-width: 100%; margin-right: 0px !important; margin-bottom: 8px !important; }
+
+#container-id-33- > :last-child, #container-id-33- > .last-child { margin-right: 0px !important; margin-bottom: 0px !important; }
+
+#content-container { display: flex; flex-direction: column; }
+
+#content-container > * { max-width: 100%; }
+
+#menu-id-27- { min-height: 80px; }
+
+#text-id-31- { letter-spacing: 0px; line-height: 45px; font-size: 40px; }
+
+#text-id-32- { width: 244px; text-align: center; }}

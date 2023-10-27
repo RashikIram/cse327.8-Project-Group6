@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>vetpoint</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://firebasestorage.googleapis.com" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{% static 'vetPoint-elements.css' %}" />
+    <link rel="stylesheet" href="{% static 'vetPoint-style.css' %}" />
+  </head>
+  <body id="root-container" style="margin: 0">
+    {% block content %} {% if user.is_authenticated %} Hi {{ user.username }}!
+    {% else %}
+    <h1>Login Unsuccessful</h1>
+    {% endif %} {% endblock %}
+    <div
+      data-element-behavior="menu"
+      id="menu-id-66-"
+      data-element-type="section"
+    >
+      <div id="container-id-52-" data-element-type="container">
+        <a
+          id="image-id-53-"
+          data-element-type="image"
+          class="clickable"
+          href="{% url 'index' %}"
+          ><img id="element-id-54-" src="{% static '-project-image-4.png' %}"
+        /></a>
+        <div id="container-id-55-" data-element-type="container">
+          <a
+            id="button-id-56-"
+            data-element-type="button"
+            href="catDiagnosis.html"
+            ><span id="element-id-57-">Cat Diagnosis</span></a
+          ><a
+            id="button-id-58-"
+            data-element-type="button"
+            href="{% url 'vetPoint' %}"
+            ><span id="vetPoint.html">Vet Point</span></a
+          >
+          <a
+          id="button-id-9-"
+          data-element-type="button"
+          href="{% url 'catProducts' %}"
+          ><span id="element-id-8-">Products</span></a
+          >
+          <a
+            id="button-id-60-"
+            data-element-type="button"
+            href="{% url 'aboutUs' %}"
+            ><span id="element-id-61-">About Us</span></a
+          >
+
+          <a id="button-id-64-" data-element-type="button" href="{% url 'signout' %}"
+            ><span id="element-id-65-">Log out</span></a
+          >
+        </div>
+      </div>
+    </div>
+
+
+    <div id="content-container">
+      <div id="container-id-31-" data-element-type="container">
+        <p id="text-id-32-" data-element-type="text">
+          <span id="element-id-33-"
+            >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp;Vet Point                               
+            </span>
+        </p>
+
+        
+          <form class="d-flex" method=POST  action="{% url 'searchVets' %}" style = " padding-top: 100px;" >
+            {% csrf_token %}
+            <input type="search" class="form-control me-3" placeholder="Enter Location" aria-label="search" aria-describedby="button-addon2"
+            name="searched">
+          <button class="btn btn-outline-dark" type="submit" id="button-addon2">Search</button>
+          </form>
+          
+        
+        
+
+        
+      </div>
+
+      
+
+      
+
+
+      <div
+        id="section-id-57-"
+        data-element-type="section"
+        contenteditable="false"
+        style = "padding-top: 50px"
+      >
+
+      
+
+      <div class="row row-cols-1 row-cols-md-4">
+        {% for vts in vet_list %}
+        <div class="col mb-4" style="display:flex; height: em; width:em padding:em">
+          <div class="card">
+
+            <div class="card-body">
+              <h2 class="card-title">{{vts.vName}}</h2>
+              <p class="card-text">
+                <strong>{{vts.vLocation}}</strong> <br/> 
+                <strong>Address:</strong> {{vts.vAddress}}<br> 
+                <strong>Phone:</strong> {{vts.vPhone}}
+              </p>
+
+
+
+            </div>
+            <div style="margin-bottom:15px; padding:10px">
+              <button type="button" class="btn btn-outline-dark">Get Location</button>
+              <button type="button" class="btn btn-outline-info">More Info</button>
+              </div>
+
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+  
+        
+
+      </div>
+
+      
+      
+
+
+
+
+
+      <!--
+
+      <div id="section-id-283-" data-element-type="section">
+        <div id="container-id-259-" data-element-type="container">
+          <div id="container-id-260-" data-element-type="container">
+            <div id="container-id-261-" data-element-type="container">
+              <p id="text-id-262-" data-element-type="text">BilaiBD</p>
+              <div id="container-id-263-" data-element-type="container">
+                <a
+                  id="button-id-264-"
+                  data-element-type="button"
+                  href="index.html"
+                  ><span id="element-id-265-">index</span></a
+                >
+              </div>
+            </div>
+            <div id="container-id-266-" data-element-type="container">
+              <p id="text-id-267-" data-element-type="text">Features</p>
+              <div id="container-id-268-" data-element-type="container">
+                <a id="button-id-269-" data-element-type="button" href=""
+                  ><span id="element-id-270-">Cat Profile</span></a
+                ><a id="button-id-271-" data-element-type="button" href=""
+                  ><span id="element-id-272-">Cat Diagnosis</span></a
+                ><a id="button-id-273-" data-element-type="button" href=""
+                  ><span id="element-id-274-">Vet Point</span></a
+                >
+              </div>
+            </div>
+            <div id="container-id-275-" data-element-type="container">
+              <p id="text-id-276-" data-element-type="text">Contact</p>
+              <div id="container-id-277-" data-element-type="container">
+                <a id="button-id-278-" data-element-type="button" href="mailto:"
+                  ><span id="element-id-279-">Email</span></a
+                ><a
+                  id="button-id-280-"
+                  data-element-type="button"
+                  href="https://twitter.com/aspectdotapp"
+                  ><span id="element-id-281-">Facebook</span></a
+                >
+              </div>
+            </div>
+          </div>
+          <p id="text-id-282-" data-element-type="text">
+            © 2023 BilaiBD, Inc. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  -->
+
+
+
+
+
+  </body>
+
+
+
+
+</html>
