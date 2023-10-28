@@ -36,6 +36,7 @@ urlpatterns = [
     path('managemenu', views.manage_menu, name='manage_menu'),
     path('staffportal', views.staff, name='staff'),
     path('view_menu', views.viewmenu, name='view_menu'),
+    path('searchMenu', views.searchMenu, name='searchMenu'),
     
 
 ]
