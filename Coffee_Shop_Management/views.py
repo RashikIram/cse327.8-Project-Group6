@@ -85,6 +85,18 @@ def searchMenu(request):
         return render(request,'searchMenu.html',
     {})
 
+def userSearchMenu(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        menuResult = Menu.objects.filter(item_name__icontains=searched)
+
+        return render(request,'userSearchMenu.html',
+    {'searched':searched,
+     'menuResult':menuResult})
+    else:
+        return render(request,'userSearchMenu.html',
+    {})
+
 def cart(request):
     return render(request, 'cart.html')
 
