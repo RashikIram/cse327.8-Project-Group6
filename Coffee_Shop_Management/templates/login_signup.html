@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<!---Coding By CoderGirl | www.codinglabweb.com--->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+  <!---Custom CSS File--->
+  <link rel="stylesheet" href="{% static 'login_signup.css'%}">
+</head>
+<body>
+  <div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <header>Login</header>
+      <form method="POST" action="{% url 'sign_in' %}">
+        {% csrf_token %}
+
+        {% if error%}
+        <div class="alert alert-danger" role="alert">
+            {{error}}
+        </div>
+        {% endif %}
+
+        <input type="text" name="username"  placeholder="Enter your username">
+        <input type="password" name="password", placeholder="Enter your password">
+        <input type="submit" class="button" value="Login">
+      </form>
+      <div class="signup">
+        <span class="signup">Don't have an account? 
+          <a href="{% url 'signup' %}">Signup</a></span>
+        </span>
+        
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
