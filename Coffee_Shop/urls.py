@@ -39,6 +39,9 @@ urlpatterns = [
     path('userSearchMenu', views.userSearchMenu, name='userSearchMenu'),
     path('menu', views.menu, name='menu'),
     path('view_menu', views.viewmenu, name='view_menu'),
+    path('searchMenu', views.searchMenu, name='searchMenu' ),
+    path('userSearchMenu', views.userSearchMenu, name='userSearchMenu' ),
+
 
 
     

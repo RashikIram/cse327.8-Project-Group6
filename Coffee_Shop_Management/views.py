@@ -135,18 +135,18 @@ def searchMenu(request):
      'menuResult':menuResult})
     else:
         return render(request,'searchMenu.html',
-    {})
+    {} )
 
 def userSearchMenu(request):
     if request.method == "POST":
         searched = request.POST['searched']
         menuResult = Menu.objects.filter(nameicontains=searched)
 
-        return render(request,'userSearchMenu.html',
+        return render(request,'userSearchMenu.html' ,
     {'searched':searched,
      'menuResult':menuResult})
     else:
-        return render(request,'userSearchMenu.html',
+        return render(request,'userSearchMenu.html' ,
     {})
 
 def menu(request):
