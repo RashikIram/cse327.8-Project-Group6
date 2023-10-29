@@ -125,6 +125,49 @@ def checkout(request):
 
     return redirect('menu')
 
+def searchMenu(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        menuResult = Menu.objects.filter(nameicontains=searched)
+
+        return render(request,'searchMenu.html',
+    {'searched':searched,
+     'menuResult':menuResult})
+    else:
+        return render(request,'searchMenu.html',
+    {} )
+
+def userSearchMenu(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        menuResult = Menu.objects.filter(nameicontains=searched)
+
+        return render(request,'userSearchMenu.html' ,
+    {'searched':searched,
+     'menuResult':menuResult})
+    else:
+        return render(request,'userSearchMenu.html' ,
+    {})
+
+def menu(request):
+    cart = request.session.get('cart')
+    if not cart:
+        request.session['cart'] = {}
+#Fetch all products (items) or apply any filtering you need here
+    items = Menu.objects.all()
+
+
+    print('you are : ', request.session.get('email'))
+    return render(request, 'menu.html', {'items': items})
+
+def viewmenu(request):
+    item_list = Menu.objects.all()
+    return render(request, 'viewmenu.html', {'item_list': item_list})
+
+def all_orders(request):
+    order_list = Order.objects.all()
+    return render(request, 'staffportal.html', {"order_list" : order_list})
+
 @login_required
 def accept_order(request, order_id):
     try:
@@ -159,6 +202,11 @@ def decline_order(request, order_id):
 
     return redirect('staffportal')
 
-def all_orders(request):
-    order_list = Order.objects.all()
-    return render(request, 'staffportal.html', {"order_list" : order_list})
+@login_required
+def view_earnings(request):
+    staff = request.user
+    paycheck = Paycheck.objects.filter(staff=staff).first()
+
+    total_earnings = paycheck.total_cost if paycheck else 0.0
+
+    return render(request, 'paycheck.html', {'total_earnings': total_earnings})
