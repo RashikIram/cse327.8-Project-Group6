@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="CodeHim">
+    <title>Update Quantity Shopping Cart Example</title>
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/style.css">
+	<!-- Demo CSS (No need to include it into your project) -->
+	<link rel="stylesheet" href="css/demo.css">
+  
+  </head>
+  <body>
+ <header class="intro">
+	<h1>The Coffee Shop</h1>
+ </header>
+  
+      
+ <main>
+     <!-- Start DEMO HTML (Use the following code into your project)-->
+<header id="site-header">
+		<div class="container">
+			<h1>Your cart</h1>
+			<!--<h1>Shopping cart <span>[</span> <em>by CodeHim</em> <span class="last-span is-open">]</span></h1>-->
+		</div>
+	</header>
+
+	<div class="container">
+
+		<section id="cart"> 
+
+			<article class="product">
+				<header>
+					<a class="remove">
+						<!--Product pic-->
+						<img src="https://www.startech.com.bd/image/cache/catalog/mouse/xigmatek/g1-gaming/g1-gaming-500x500.webp" alt="Gamming Mouse">
+						<!--Remove Product-->
+						<h3>Remove product</h3>
+					</a>
+				</header>
+
+				<div class="content">
+					<!-- Product Name -->
+					<h1>Mouse</h1>
+					<!-- Product Description -->
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, numquam quis perspiciatis ea ad omnis provident laborum dolore in atque.
+					
+				</div>
+
+				<footer class="content">
+					<!-- Increase quantity -->
+					<a href="#"><span class="qt-minus">-</span></a>
+					<!-- Quantity -->
+					<span class="qt">2</span>
+					<!-- Decrease quantity -->
+					<a href="#"><span class="qt-plus">+</span></a>
+
+					<!-- Product Price -->
+					<h2 class="price">
+						29.98€
+					</h2>
+
+				</footer>
+			</article>
+
+			
+
+		</section>
+
+	</div>
+
+	<footer id="site-footer">
+		<div class="container clearfix">
+			<div class="right">
+				<!-- Total price -->
+				<h1 class="total">Total: <span>177.16</span>€</h1>
+				<!-- Checkout Button -->
+				<a class="btn">Checkout</a>
+				
+			</div>
+			<a href="#"><button type="button" class="btn btn-outline-dark">Return to page</button></a>
+
+		</div>
+	</footer>
+     
+ </main>
+  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script  src="./js/script.js"></script> 
+      
+  </body>
+</html>
