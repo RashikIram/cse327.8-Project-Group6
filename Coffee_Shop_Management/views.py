@@ -149,3 +149,17 @@ def userSearchMenu(request):
         return render(request,'userSearchMenu.html',
     {})
 
+def menu(request):
+    cart = request.session.get('cart')
+    if not cart:
+        request.session['cart'] = {}
+#Fetch all products (items) or apply any filtering you need here
+    items = Menu.objects.all()
+
+
+    print('you are : ', request.session.get('email'))
+    return render(request, 'menu.html', {'items': items})
+
+def viewmenu(request):
+    item_list = Menu.objects.all()
+    return render(request, 'viewmenu.html', {'item_list': item_list})
