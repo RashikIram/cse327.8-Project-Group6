@@ -125,3 +125,40 @@ def checkout(request):
 
     return redirect('menu')
 
+@login_required
+def accept_order(request, order_id):
+    try:
+        order = Order.objects.get(id=order_id)
+        
+        # Calculate the total cost for the accepted item
+        total_cost = order.price * order.quantity
+
+        # Create or update the Paycheck entry for the staff
+        staff = request.user
+        paycheck, created = Paycheck.objects.get_or_create(staff=staff)
+        paycheck.total_cost += total_cost * Decimal('0.15')  # 15% of the total cost
+        paycheck.save()
+
+        # Delete the accepted order
+        order.delete()
+
+        messages.success(request, 'Order accepted')
+    except Order.DoesNotExist:
+        messages.error(request, 'Order not found')
+
+    return redirect('staffportal') 
+
+@login_required
+def decline_order(request, order_id):
+    try:
+        order = Order.objects.get(id=order_id)
+        order.delete()
+        messages.success(request, 'Order declined')
+    except Order.DoesNotExist:
+        messages.error(request, 'Order not found')
+
+    return redirect('staffportal')
+
+def all_orders(request):
+    order_list = Order.objects.all()
+    return render(request, 'staffportal.html', {"order_list" : order_list})
