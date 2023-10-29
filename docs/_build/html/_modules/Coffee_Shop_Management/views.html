@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coffee_Shop_Management.views &mdash; Coffee_Shop 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Coffee_Shop
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">cse327.8-Project-Group6-RashikIram-Final</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Coffee_Shop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">Coffee_Shop_Management.views</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for Coffee_Shop_Management.views</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">get_object_or_404</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">authenticate</span><span class="p">,</span> <span class="n">login</span><span class="p">,</span> <span class="n">logout</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.forms</span> <span class="kn">import</span> <span class="n">UserCreationForm</span><span class="p">,</span> <span class="n">AuthenticationForm</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Menu</span><span class="p">,</span> <span class="n">Order</span><span class="p">,</span> <span class="n">Paycheck</span>
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">SignUpForm</span>
+<span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
+
+<span class="kn">from</span> <span class="nn">django.contrib.auth.decorators</span> <span class="kn">import</span> <span class="n">login_required</span>
+
+<div class="viewcode-block" id="customer">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.customer">[docs]</a>
+<span class="k">def</span> <span class="nf">customer</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function displays the customer portal page.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+
+<span class="sd">    :return: Rendered HTML page for the customer portal.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;customerportal.html&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="login_user">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.login_user">[docs]</a>
+<span class="k">def</span> <span class="nf">login_user</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to log in the user and redirect to the appropriate page based on user type.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+
+<span class="sd">    :return: Redirect to staff portal or coffee shop profile if login is successful, </span>
+<span class="sd">             otherwise show an error message.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;coffeshop&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">authenticate</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">login</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">is_staff</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;staffportal&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;coffeeshop&#39;</span><span class="p">)</span>  <span class="c1"># profile</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Error Login&#39;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="n">form</span> <span class="o">=</span> <span class="n">AuthenticationForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;login_signup.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">,</span> <span class="s1">&#39;msg&#39;</span><span class="p">:</span> <span class="n">msg</span><span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">AuthenticationForm</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;login_signup.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="signup">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.signup">[docs]</a>
+<span class="k">def</span> <span class="nf">signup</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function creates a new user and redirect to the coffee shop profile.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+
+<span class="sd">    :return: Redirect to the coffee shop profile page after successful signup.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">UserCreationForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="n">login</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;coffeeshop&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form</span> <span class="o">=</span> <span class="n">UserCreationForm</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;signup.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="logout_user">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.logout_user">[docs]</a>
+<span class="k">def</span> <span class="nf">logout_user</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to log out the user and redirect to the homepage.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+
+<span class="sd">    :return: Redirect to the homepage after successful logout.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logout</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;homepage&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="homepage">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.homepage">[docs]</a>
+<span class="k">def</span> <span class="nf">homepage</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function displays the homepage.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+
+<span class="sd">    :return: Rendered HTML page for the homepage.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_to_cart">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.add_to_cart">[docs]</a>
+<span class="k">def</span> <span class="nf">add_to_cart</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">item_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to add an item to the user&#39;s cart from menu.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+<span class="sd">    :param item_id: The ID of the item to be added to the cart.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+<span class="sd">    :type item_id: int.</span>
+
+<span class="sd">    :return: Redirect to the cart page.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">Menu</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">item_id</span><span class="p">)</span>
+
+    <span class="c1"># Check if the item is already in the user&#39;s cart</span>
+    <span class="n">cart_item</span><span class="p">,</span> <span class="n">created</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span>
+        <span class="n">customer</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="n">item</span><span class="p">,</span> <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">price</span><span class="p">})</span>
+
+    <span class="c1"># If the item is already in the cart, increase the quantity</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">created</span><span class="p">:</span>
+        <span class="n">cart_item</span><span class="o">.</span><span class="n">quantity</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">cart_item</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;cart&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="view_cart">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.view_cart">[docs]</a>
+<span class="k">def</span> <span class="nf">view_cart</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to view the user&#39;s shopping cart.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+
+<span class="sd">    :return: Rendered HTML page showing the user&#39;s cart and its total price.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cart_items</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">customer</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">grand_total_cart_price</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span>
+        <span class="n">item</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">price</span> <span class="o">*</span> <span class="n">item</span><span class="o">.</span><span class="n">quantity</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">cart_items</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;cart.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;cart_items&#39;</span><span class="p">:</span> <span class="n">cart_items</span><span class="p">,</span> <span class="s1">&#39;grand_total_cart_price&#39;</span><span class="p">:</span> <span class="n">grand_total_cart_price</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="remove_from_cart">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.remove_from_cart">[docs]</a>
+<span class="k">def</span> <span class="nf">remove_from_cart</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">cart_item_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to remove an item from the user&#39;s shopping cart.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+<span class="sd">    :param cart_item_id: The ID of the item to be removed from the cart.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+<span class="sd">    :type cart_item_id: int.</span>
+
+<span class="sd">    :return: Redirect to the cart or menu page.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cart_item</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Order</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">cart_item_id</span><span class="p">,</span> <span class="n">customer</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">cart_item</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">customer</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;Your cart is now empty.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;menu&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;cart&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="reduce_quantity">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.reduce_quantity">[docs]</a>
+<span class="k">def</span> <span class="nf">reduce_quantity</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">cart_item_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to reduce the quantity of an item in the user&#39;s shopping cart.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+<span class="sd">    :param cart_item_id: The ID of the item whose quantity is to be reduced.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+<span class="sd">    :type cart_item_id: int.</span>
+
+<span class="sd">    :return: Redirect to the cart page.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cart_item</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Order</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">cart_item_id</span><span class="p">,</span> <span class="n">customer</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+
+    <span class="c1"># If the quantity is more than 0, reduce it</span>
+    <span class="k">if</span> <span class="n">cart_item</span><span class="o">.</span><span class="n">quantity</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">cart_item</span><span class="o">.</span><span class="n">quantity</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="n">cart_item</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;The quantity cannot be reduced further.&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;cart&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="increase_quantity">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.increase_quantity">[docs]</a>
+<span class="k">def</span> <span class="nf">increase_quantity</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">cart_item_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to increase the quantity of an item in the user&#39;s shopping cart.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+<span class="sd">    :param cart_item_id: The ID of the item whose quantity is to be increased.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+<span class="sd">    :type cart_item_id: int.</span>
+
+<span class="sd">    :return: Redirect to the cart page.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cart_item</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Order</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">cart_item_id</span><span class="p">,</span> <span class="n">customer</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+
+    <span class="n">cart_item</span><span class="o">.</span><span class="n">quantity</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">cart_item</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;cart&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="clear_cart">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.clear_cart">[docs]</a>
+<span class="k">def</span> <span class="nf">clear_cart</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to clear all items from the user&#39;s shopping cart.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+
+<span class="sd">    :return: Redirect to the menu page.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cart_items</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">customer</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">cart_items</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;menu&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="checkout">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.checkout">[docs]</a>
+<span class="k">def</span> <span class="nf">checkout</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to checkout the items in the user&#39;s shopping cart and clear the cart.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+
+<span class="sd">    :return: Redirect to the menu page after successful checkout.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cart_items</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">customer</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+
+    <span class="c1"># Clear the cart after checkout</span>
+    <span class="n">cart_items</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;menu&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="search_menu">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.search_menu">[docs]</a>
+<span class="k">def</span> <span class="nf">search_menu</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to search for items in the menu.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+
+<span class="sd">    :return: Rendered HTML page showing search results.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="n">searched</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;searched&#39;</span><span class="p">]</span>
+        <span class="n">menuResult</span> <span class="o">=</span> <span class="n">Menu</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__icontains</span><span class="o">=</span><span class="n">searched</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;searchMenu.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;searched&#39;</span><span class="p">:</span> <span class="n">searched</span><span class="p">,</span> <span class="s1">&#39;menuResult&#39;</span><span class="p">:</span> <span class="n">menuResult</span><span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;searchMenu.html&#39;</span><span class="p">,</span> <span class="p">{})</span></div>
+
+
+<div class="viewcode-block" id="user_search_menu">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.user_search_menu">[docs]</a>
+<span class="k">def</span> <span class="nf">user_search_menu</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to search for items in the menu for a user.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+
+<span class="sd">    :return: Rendered HTML page showing search results for the user.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="n">searched</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s1">&#39;searched&#39;</span><span class="p">]</span>
+        <span class="n">menuResult</span> <span class="o">=</span> <span class="n">Menu</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__icontains</span><span class="o">=</span><span class="n">searched</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;userSearchMenu.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;searched&#39;</span><span class="p">:</span> <span class="n">searched</span><span class="p">,</span> <span class="s1">&#39;menuResult&#39;</span><span class="p">:</span> <span class="n">menuResult</span><span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;userSearchMenu.html&#39;</span><span class="p">,</span> <span class="p">{})</span></div>
+
+
+<div class="viewcode-block" id="menu">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.menu">[docs]</a>
+<span class="k">def</span> <span class="nf">menu</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to display the menu page.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+
+<span class="sd">    :return: Rendered HTML page showing the menu.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cart</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cart&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">cart</span><span class="p">:</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;cart&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1"># Fetch all products (items) or apply any filtering you need here</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="n">Menu</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;you are: &#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;menu.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="n">items</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="viewmenu">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.viewmenu">[docs]</a>
+<span class="k">def</span> <span class="nf">viewmenu</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to View the menu for everyone.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+
+<span class="sd">    :return: Rendered HTML page showing the menu for everyone.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">item_list</span> <span class="o">=</span> <span class="n">Menu</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;viewmenu.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;item_list&#39;</span><span class="p">:</span> <span class="n">item_list</span><span class="p">})</span></div>
+
+
+<div class="viewcode-block" id="all_orders">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.all_orders">[docs]</a>
+<span class="k">def</span> <span class="nf">all_orders</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to display all orders for staff.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+
+<span class="sd">    :return: Rendered HTML page showing all orders for staff.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">order_list</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;staffportal.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;order_list&quot;</span><span class="p">:</span> <span class="n">order_list</span><span class="p">})</span></div>
+
+
+<span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
+
+<div class="viewcode-block" id="accept_order">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.accept_order">[docs]</a>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">accept_order</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">order_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to accept an order and calculate earnings for the staff.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+<span class="sd">    :param order_id: The ID of the order to be accepted.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+<span class="sd">    :type order_id: int.</span>
+
+<span class="sd">    :return: Redirect to the staff portal after accepting the order.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">order</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">order_id</span><span class="p">)</span>
+
+        <span class="c1"># Calculate the total cost for the accepted item</span>
+        <span class="n">total_cost</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="n">price</span> <span class="o">*</span> <span class="n">order</span><span class="o">.</span><span class="n">quantity</span>
+
+        <span class="c1"># Create or update the Paycheck entry for the staff</span>
+        <span class="n">staff</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span>
+        <span class="n">paycheck</span><span class="p">,</span> <span class="n">created</span> <span class="o">=</span> <span class="n">Paycheck</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span><span class="n">staff</span><span class="o">=</span><span class="n">staff</span><span class="p">)</span>
+        <span class="n">paycheck</span><span class="o">.</span><span class="n">total_cost</span> <span class="o">+=</span> <span class="n">total_cost</span> <span class="o">*</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;0.15&#39;</span><span class="p">)</span>  <span class="c1"># 15% of the total cost</span>
+        <span class="n">paycheck</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="c1"># Delete the accepted order</span>
+        <span class="n">order</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+        <span class="n">messages</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Order accepted&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">Order</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Order not found&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;staffportal&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="decline_order">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.decline_order">[docs]</a>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">decline_order</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">order_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to decline an order.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+<span class="sd">    :param order_id: The ID of the order to be declined.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+<span class="sd">    :type order_id: int.</span>
+
+<span class="sd">    :return: Redirect to the staff portal after declining the order.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">order</span> <span class="o">=</span> <span class="n">Order</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">order_id</span><span class="p">)</span>
+        <span class="n">order</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Order declined&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">Order</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Order not found&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;staffportal&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="view_earnings">
+<a class="viewcode-back" href="../../Coffee_Shop_Management.html#Coffee_Shop_Management.views.view_earnings">[docs]</a>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">view_earnings</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function is used to view earnings for the staff.</span>
+
+<span class="sd">    :param request: HttpRequest from the user.</span>
+
+<span class="sd">    :type request: HttpRequest.</span>
+
+<span class="sd">    :return: Rendered HTML page showing earnings for the staff.</span>
+
+<span class="sd">    :rtype: HttpResponse.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">staff</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span>
+    <span class="n">paycheck</span> <span class="o">=</span> <span class="n">Paycheck</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">staff</span><span class="o">=</span><span class="n">staff</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+
+    <span class="n">total_earnings</span> <span class="o">=</span> <span class="n">paycheck</span><span class="o">.</span><span class="n">total_cost</span> <span class="k">if</span> <span class="n">paycheck</span> <span class="k">else</span> <span class="mf">0.0</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;paycheck.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;total_earnings&#39;</span><span class="p">:</span> <span class="n">total_earnings</span><span class="p">})</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Group-6.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
