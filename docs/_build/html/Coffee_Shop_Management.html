@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coffee_Shop_Management package &mdash; Coffee_Shop 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8d563738"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Coffee_Shop_Management.migrations package" href="Coffee_Shop_Management.migrations.html" />
+    <link rel="prev" title="Coffee_Shop package" href="Coffee_Shop.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Coffee_Shop
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">cse327.8-Project-Group6-RashikIram-Final</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Coffee_Shop.html">Coffee_Shop package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Coffee_Shop_Management package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Coffee_Shop_Management.migrations.html">Coffee_Shop_Management.migrations package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Coffee_Shop_Management.admin">Coffee_Shop_Management.admin module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Coffee_Shop_Management.apps">Coffee_Shop_Management.apps module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.apps.CoffeeShopManagementConfig"><code class="docutils literal notranslate"><span class="pre">CoffeeShopManagementConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Coffee_Shop_Management.forms">Coffee_Shop_Management.forms module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.forms.SignUpForm"><code class="docutils literal notranslate"><span class="pre">SignUpForm</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Coffee_Shop_Management.models">Coffee_Shop_Management.models module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.models.Menu"><code class="docutils literal notranslate"><span class="pre">Menu</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.models.Order"><code class="docutils literal notranslate"><span class="pre">Order</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.models.Paycheck"><code class="docutils literal notranslate"><span class="pre">Paycheck</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Coffee_Shop_Management.tests">Coffee_Shop_Management.tests module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Coffee_Shop_Management.views">Coffee_Shop_Management.views module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.accept_order"><code class="docutils literal notranslate"><span class="pre">accept_order()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.add_to_cart"><code class="docutils literal notranslate"><span class="pre">add_to_cart()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.all_orders"><code class="docutils literal notranslate"><span class="pre">all_orders()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.checkout"><code class="docutils literal notranslate"><span class="pre">checkout()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.clear_cart"><code class="docutils literal notranslate"><span class="pre">clear_cart()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.customer"><code class="docutils literal notranslate"><span class="pre">customer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.decline_order"><code class="docutils literal notranslate"><span class="pre">decline_order()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.homepage"><code class="docutils literal notranslate"><span class="pre">homepage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.increase_quantity"><code class="docutils literal notranslate"><span class="pre">increase_quantity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.login_user"><code class="docutils literal notranslate"><span class="pre">login_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.logout_user"><code class="docutils literal notranslate"><span class="pre">logout_user()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.menu"><code class="docutils literal notranslate"><span class="pre">menu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.reduce_quantity"><code class="docutils literal notranslate"><span class="pre">reduce_quantity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.remove_from_cart"><code class="docutils literal notranslate"><span class="pre">remove_from_cart()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.search_menu"><code class="docutils literal notranslate"><span class="pre">search_menu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.signup"><code class="docutils literal notranslate"><span class="pre">signup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.user_search_menu"><code class="docutils literal notranslate"><span class="pre">user_search_menu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.view_cart"><code class="docutils literal notranslate"><span class="pre">view_cart()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.view_earnings"><code class="docutils literal notranslate"><span class="pre">view_earnings()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Coffee_Shop_Management.views.viewmenu"><code class="docutils literal notranslate"><span class="pre">viewmenu()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Coffee_Shop_Management">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Coffee_Shop</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">cse327.8-Project-Group6-RashikIram-Final</a></li>
+      <li class="breadcrumb-item active">Coffee_Shop_Management package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Coffee_Shop_Management.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="coffee-shop-management-package">
+<h1>Coffee_Shop_Management package<a class="headerlink" href="#coffee-shop-management-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Coffee_Shop_Management.migrations.html">Coffee_Shop_Management.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Coffee_Shop_Management.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Coffee_Shop_Management.migrations.html#module-Coffee_Shop_Management.migrations.0001_initial">Coffee_Shop_Management.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Coffee_Shop_Management.migrations.html#Coffee_Shop_Management.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Coffee_Shop_Management.migrations.html#Coffee_Shop_Management.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Coffee_Shop_Management.migrations.html#Coffee_Shop_Management.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Coffee_Shop_Management.migrations.html#Coffee_Shop_Management.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Coffee_Shop_Management.migrations.html#module-Coffee_Shop_Management.migrations.0002_paycheck">Coffee_Shop_Management.migrations.0002_paycheck module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Coffee_Shop_Management.migrations.html#Coffee_Shop_Management.migrations.0002_paycheck.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Coffee_Shop_Management.migrations.html#Coffee_Shop_Management.migrations.0002_paycheck.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Coffee_Shop_Management.migrations.html#Coffee_Shop_Management.migrations.0002_paycheck.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Coffee_Shop_Management.migrations.html#module-Coffee_Shop_Management.migrations.0003_alter_paycheck_total_cost">Coffee_Shop_Management.migrations.0003_alter_paycheck_total_cost module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Coffee_Shop_Management.migrations.html#Coffee_Shop_Management.migrations.0003_alter_paycheck_total_cost.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Coffee_Shop_Management.migrations.html#Coffee_Shop_Management.migrations.0003_alter_paycheck_total_cost.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="Coffee_Shop_Management.migrations.html#Coffee_Shop_Management.migrations.0003_alter_paycheck_total_cost.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Coffee_Shop_Management.migrations.html#module-Coffee_Shop_Management.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-Coffee_Shop_Management.admin">
+<span id="coffee-shop-management-admin-module"></span><h2>Coffee_Shop_Management.admin module<a class="headerlink" href="#module-Coffee_Shop_Management.admin" title="Link to this heading"></a></h2>
+</section>
+<section id="module-Coffee_Shop_Management.apps">
+<span id="coffee-shop-management-apps-module"></span><h2>Coffee_Shop_Management.apps module<a class="headerlink" href="#module-Coffee_Shop_Management.apps" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.apps.CoffeeShopManagementConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.apps.</span></span><span class="sig-name descname"><span class="pre">CoffeeShopManagementConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/apps.html#CoffeeShopManagementConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.apps.CoffeeShopManagementConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.apps.CoffeeShopManagementConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#Coffee_Shop_Management.apps.CoffeeShopManagementConfig.default_auto_field" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.apps.CoffeeShopManagementConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Coffee_Shop_Management'</span></em><a class="headerlink" href="#Coffee_Shop_Management.apps.CoffeeShopManagementConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Coffee_Shop_Management.forms">
+<span id="coffee-shop-management-forms-module"></span><h2>Coffee_Shop_Management.forms module<a class="headerlink" href="#module-Coffee_Shop_Management.forms" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.forms.SignUpForm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.forms.</span></span><span class="sig-name descname"><span class="pre">SignUpForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/forms.html#SignUpForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.forms.SignUpForm" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserCreationForm</span></code></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.forms.SignUpForm.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/Coffee_Shop_Management/forms.html#SignUpForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.forms.SignUpForm.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.forms.SignUpForm.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('username',</span> <span class="pre">'first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'email',</span> <span class="pre">'password1',</span> <span class="pre">'password2')</span></em><a class="headerlink" href="#Coffee_Shop_Management.forms.SignUpForm.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.forms.SignUpForm.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#Coffee_Shop_Management.forms.SignUpForm.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.forms.SignUpForm.base_fields">
+<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'username':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Coffee_Shop_Management.forms.SignUpForm.base_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.forms.SignUpForm.clean_email">
+<span class="sig-name descname"><span class="pre">clean_email</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/forms.html#SignUpForm.clean_email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.forms.SignUpForm.clean_email" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.forms.SignUpForm.declared_fields">
+<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password1':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'password2':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#Coffee_Shop_Management.forms.SignUpForm.declared_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.forms.SignUpForm.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#Coffee_Shop_Management.forms.SignUpForm.media" title="Link to this definition"></a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.forms.SignUpForm.signup_and_login">
+<span class="sig-name descname"><span class="pre">signup_and_login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/forms.html#SignUpForm.signup_and_login"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.forms.SignUpForm.signup_and_login" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Coffee_Shop_Management.models">
+<span id="coffee-shop-management-models-module"></span><h2>Coffee_Shop_Management.models module<a class="headerlink" href="#module-Coffee_Shop_Management.models" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Menu">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.models.</span></span><span class="sig-name descname"><span class="pre">Menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/models.html#Menu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.models.Menu" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>This model is representing the menu items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>max length 255.</em>) – The name of the menu item.</p></li>
+<li><p><strong>price</strong> (<em>Decimal with max digits 10 and 2 decimal places.</em>) – The price of the menu item.</p></li>
+<li><p><strong>picture</strong> (<em>ImageField.</em>) – An image representing the menu item.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Classmethod get_items_by_id<span class="colon">:</span></dt>
+<dd class="field-even"><p>Get menu items by their IDs.</p>
+</dd>
+<dt class="field-odd">Classmethod get_all_products<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Get all menu items.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Menu.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Menu.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Menu.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Menu.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Menu.get_all_products">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_all_products</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/models.html#Menu.get_all_products"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.models.Menu.get_all_products" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Menu.get_items_by_id">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_items_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/models.html#Menu.get_items_by_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.models.Menu.get_items_by_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Menu.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Menu.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Menu.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Menu.name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Menu.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#Coffee_Shop_Management.models.Menu.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Menu.order_set">
+<span class="sig-name descname"><span class="pre">order_set</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Menu.order_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Menu.picture">
+<span class="sig-name descname"><span class="pre">picture</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Menu.picture" title="Link to this definition"></a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Menu.price">
+<span class="sig-name descname"><span class="pre">price</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Menu.price" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Order">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.models.</span></span><span class="sig-name descname"><span class="pre">Order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/models.html#Order"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.models.Order" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>This model is representing customer orders.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>items</strong> (<em>ForeignKey to Menu.</em>) – The menu item in the order.</p></li>
+<li><p><strong>customer</strong> (<em>ForeignKey to User.</em>) – The user who placed the order.</p></li>
+<li><p><strong>quantity</strong> (<em>int</em><em>, </em><em>default 1.</em>) – The quantity of the menu item in the order.</p></li>
+<li><p><strong>price</strong> (<em>Decimal with max digits 10 and 2 decimal places.</em>) – The total price of the order.</p></li>
+<li><p><strong>address</strong> (<em>str</em><em>, </em><em>max length 50</em><em>, </em><em>default blank.</em>) – The delivery address for the order.</p></li>
+<li><p><strong>phone</strong> (<em>str</em><em>, </em><em>max length 50</em><em>, </em><em>default blank.</em>) – The contact phone number for the order.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Order.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Order.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Order.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Order.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Order.address">
+<span class="sig-name descname"><span class="pre">address</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Order.address" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Order.customer">
+<span class="sig-name descname"><span class="pre">customer</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Order.customer" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Order.customer_id">
+<span class="sig-name descname"><span class="pre">customer_id</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Order.customer_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Order.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Order.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Order.items">
+<span class="sig-name descname"><span class="pre">items</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Order.items" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Order.items_id">
+<span class="sig-name descname"><span class="pre">items_id</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Order.items_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Order.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#Coffee_Shop_Management.models.Order.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Order.phone">
+<span class="sig-name descname"><span class="pre">phone</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Order.phone" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Order.price">
+<span class="sig-name descname"><span class="pre">price</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Order.price" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Order.quantity">
+<span class="sig-name descname"><span class="pre">quantity</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Order.quantity" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Paycheck">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.models.</span></span><span class="sig-name descname"><span class="pre">Paycheck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/models.html#Paycheck"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.models.Paycheck" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>This model is representing staff paychecks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>staff</strong> (<em>ForeignKey to User.</em>) – The staff member for whom the paycheck is issued.</p></li>
+<li><p><strong>total_cost</strong> (<em>Decimal with max digits 10 and 2 decimal places</em><em>, </em><em>default 0.00</em><em>, </em><em>nullable.</em>) – The total earnings for the staff.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Paycheck.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Paycheck.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Paycheck.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Paycheck.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Paycheck.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Paycheck.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Paycheck.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#Coffee_Shop_Management.models.Paycheck.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Paycheck.staff">
+<span class="sig-name descname"><span class="pre">staff</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Paycheck.staff" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Paycheck.staff_id">
+<span class="sig-name descname"><span class="pre">staff_id</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Paycheck.staff_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.models.Paycheck.total_cost">
+<span class="sig-name descname"><span class="pre">total_cost</span></span><a class="headerlink" href="#Coffee_Shop_Management.models.Paycheck.total_cost" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Coffee_Shop_Management.tests">
+<span id="coffee-shop-management-tests-module"></span><h2>Coffee_Shop_Management.tests module<a class="headerlink" href="#module-Coffee_Shop_Management.tests" title="Link to this heading"></a></h2>
+</section>
+<section id="module-Coffee_Shop_Management.views">
+<span id="coffee-shop-management-views-module"></span><h2>Coffee_Shop_Management.views module<a class="headerlink" href="#module-Coffee_Shop_Management.views" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.accept_order">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">accept_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#accept_order"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.accept_order" title="Link to this definition"></a></dt>
+<dd><p>This function is used to accept an order and calculate earnings for the staff.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p></li>
+<li><p><strong>order_id</strong> (<em>int.</em>) – The ID of the order to be accepted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redirect to the staff portal after accepting the order.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.add_to_cart">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">add_to_cart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#add_to_cart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.add_to_cart" title="Link to this definition"></a></dt>
+<dd><p>This function is used to add an item to the user’s cart from menu.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p></li>
+<li><p><strong>item_id</strong> (<em>int.</em>) – The ID of the item to be added to the cart.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redirect to the cart page.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.all_orders">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">all_orders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#all_orders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.all_orders" title="Link to this definition"></a></dt>
+<dd><p>This function is used to display all orders for staff.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rendered HTML page showing all orders for staff.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.checkout">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">checkout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#checkout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.checkout" title="Link to this definition"></a></dt>
+<dd><p>This function is used to checkout the items in the user’s shopping cart and clear the cart.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redirect to the menu page after successful checkout.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.clear_cart">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">clear_cart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#clear_cart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.clear_cart" title="Link to this definition"></a></dt>
+<dd><p>This function is used to clear all items from the user’s shopping cart.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redirect to the menu page.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.customer">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">customer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#customer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.customer" title="Link to this definition"></a></dt>
+<dd><p>This function displays the customer portal page.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rendered HTML page for the customer portal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.decline_order">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">decline_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#decline_order"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.decline_order" title="Link to this definition"></a></dt>
+<dd><p>This function is used to decline an order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p></li>
+<li><p><strong>order_id</strong> (<em>int.</em>) – The ID of the order to be declined.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redirect to the staff portal after declining the order.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.homepage">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">homepage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#homepage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.homepage" title="Link to this definition"></a></dt>
+<dd><p>This function displays the homepage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rendered HTML page for the homepage.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.increase_quantity">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">increase_quantity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cart_item_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#increase_quantity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.increase_quantity" title="Link to this definition"></a></dt>
+<dd><p>This function is used to increase the quantity of an item in the user’s shopping cart.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p></li>
+<li><p><strong>cart_item_id</strong> (<em>int.</em>) – The ID of the item whose quantity is to be increased.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redirect to the cart page.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.login_user">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">login_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#login_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.login_user" title="Link to this definition"></a></dt>
+<dd><p>This function is used to log in the user and redirect to the appropriate page based on user type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redirect to staff portal or coffee shop profile if login is successful, 
+otherwise show an error message.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.logout_user">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">logout_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#logout_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.logout_user" title="Link to this definition"></a></dt>
+<dd><p>This function is used to log out the user and redirect to the homepage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redirect to the homepage after successful logout.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.menu">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#menu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.menu" title="Link to this definition"></a></dt>
+<dd><p>This function is used to display the menu page.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rendered HTML page showing the menu.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.reduce_quantity">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">reduce_quantity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cart_item_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#reduce_quantity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.reduce_quantity" title="Link to this definition"></a></dt>
+<dd><p>This function is used to reduce the quantity of an item in the user’s shopping cart.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p></li>
+<li><p><strong>cart_item_id</strong> (<em>int.</em>) – The ID of the item whose quantity is to be reduced.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redirect to the cart page.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.remove_from_cart">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">remove_from_cart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cart_item_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#remove_from_cart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.remove_from_cart" title="Link to this definition"></a></dt>
+<dd><p>This function is used to remove an item from the user’s shopping cart.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p></li>
+<li><p><strong>cart_item_id</strong> (<em>int.</em>) – The ID of the item to be removed from the cart.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redirect to the cart or menu page.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.search_menu">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">search_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#search_menu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.search_menu" title="Link to this definition"></a></dt>
+<dd><p>This function is used to search for items in the menu.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rendered HTML page showing search results.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.signup">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">signup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#signup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.signup" title="Link to this definition"></a></dt>
+<dd><p>This function creates a new user and redirect to the coffee shop profile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redirect to the coffee shop profile page after successful signup.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.user_search_menu">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">user_search_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#user_search_menu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.user_search_menu" title="Link to this definition"></a></dt>
+<dd><p>This function is used to search for items in the menu for a user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rendered HTML page showing search results for the user.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.view_cart">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">view_cart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#view_cart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.view_cart" title="Link to this definition"></a></dt>
+<dd><p>This function is used to view the user’s shopping cart.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rendered HTML page showing the user’s cart and its total price.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.view_earnings">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">view_earnings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#view_earnings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.view_earnings" title="Link to this definition"></a></dt>
+<dd><p>This function is used to view earnings for the staff.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rendered HTML page showing earnings for the staff.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Coffee_Shop_Management.views.viewmenu">
+<span class="sig-prename descclassname"><span class="pre">Coffee_Shop_Management.views.</span></span><span class="sig-name descname"><span class="pre">viewmenu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Coffee_Shop_Management/views.html#viewmenu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Coffee_Shop_Management.views.viewmenu" title="Link to this definition"></a></dt>
+<dd><p>This function is used to View the menu for everyone.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest.</em>) – HttpRequest from the user.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rendered HTML page showing the menu for everyone.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-Coffee_Shop_Management">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-Coffee_Shop_Management" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Coffee_Shop.html" class="btn btn-neutral float-left" title="Coffee_Shop package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Coffee_Shop_Management.migrations.html" class="btn btn-neutral float-right" title="Coffee_Shop_Management.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Group-6.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
