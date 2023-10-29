@@ -128,7 +128,7 @@ def checkout(request):
 def searchMenu(request):
     if request.method == "POST":
         searched = request.POST['searched']
-        menuResult = Menu.objects.filter(nameicontains=searched)
+        menuResult = Menu.objects.filter(name__icontains=searched)
 
         return render(request,'searchMenu.html',
     {'searched':searched,
@@ -140,7 +140,7 @@ def searchMenu(request):
 def userSearchMenu(request):
     if request.method == "POST":
         searched = request.POST['searched']
-        menuResult = Menu.objects.filter(nameicontains=searched)
+        menuResult = Menu.objects.filter(name__icontains=searched)
 
         return render(request,'userSearchMenu.html' ,
     {'searched':searched,
